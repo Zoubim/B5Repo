@@ -3,9 +3,80 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Movie Database</title>
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
+    <header class="page-header">
+        <h1>Movie Database</h1>
+    </header>
+    <main class="page-main">
+        <!--Section 1: Movie maintenance - add, update or delete one movie-->
+        <section class="card" id="maintenanceSection">
+            <h2>Movie Maintenance</h2>
+            <form id="maintenanceForm">
+                <div class="field-row">
+                    <label for="movieIdInput">Movie ID</label>
+                    <input type="text" id="movieIdInput" name="movieIdInput" placeholder="e.g. 123">
+                </div>
+                <div class="field-row">
+                    <label for="titleInput">Title</label>
+                    <input type="text" id="titleInput" name="titleInput" placeholder="e.g. The Dark Knight">
+                </div>
+                <div class="field-row">
+                    <label for="yearInput">Year</label>
+                    <input type="text" id="yearInput" name="yearInput" placeholder="e.g. 1927">
+                </div>
+                <div class="field-row">
+                    <label for="ratingInput">Rating</label>
+                    <input for="text" id="ratingInput" name="ratingInput" placeholder="1-5">
+                </div>
+
+                <fieldset class="action-set">
+                    <legend>Action</legend>
+                    <label> <input type="radio" name="maintenanceAction" value="add" checked>Add</label>
+                    <label><input type="radio" name="maintenanceAction" value="update">Update</label>
+                    <label><input type="radio" name="maintenanceAction" value="delete">Delete</label>
+                </fieldset>
+                <button type="submit" class="button button-primary" id="submitButton">Submit</button>
+            </form>
+            <p class="message" id="maintenanceMessage"></p>
+        </section>
+
+        <!--Section 3: Search by movie ID and/or by title-->
+        <section class="card" id="searchSection">
+            <h2>Search movies</h2>
+            <div class="field-row">
+                <label for="searchIdInput">Movie ID</label>
+                <input type="text" id="searchInput" name="searchIdInput" placeholder="e.g. 123">
+                <button type="button" class="button" id="searchIdButton">Search</button>
+            </div>
+            <div class="search-result" id="searchResultView">
+            </div>
+                     <div class="field-row">
+                <label for="searchIdInput">Title contains</label>
+                <input type="text" id="searchTitleInput" name="searchTitleInput" placeholder="e.g. The">
+                <button type="button" class="button" id="searchTitleButton">Search Title</button>
+            </div>
+        </section>
+        <!-- Section 2 and 4 : Display the movie list and sort it-->
+         <section class="card card-wide" id="listSection">
+            <h2>Movile List</h2>
+            <div class="button-bar">
+                <button type="button" class="button button-primary" id="refreshButton">Refresh</button>
+                <button type="button" class="button" id="sortAscendingButton">Sort A-Z</button>
+                <button type="button" class="button" id="sortDescendingButton">Sort Z-A</button>
+                <button type="button" class="button" id="bestMoviesButton">Best Movies</button>
+            </div>
+            <div class="list-view" id="movieListView"></div>
+         </section>
+
+
+    </main>
+    <footer class="page-footer">
+        <p>Movie Database</p>
+    </footer>
+    <script src="js/movie.js"></script>
     
 </body>
 </html>
