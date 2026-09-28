@@ -1,0 +1,32 @@
+/**
+Part B5 - Movie Database CSS
+Color 1 - #1F3A5F
+Color 2 - #4A90D9
+Color 3 - #F4F6F8
+*/
+
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #1B1B1B;
+    background-color: #F4F6F8;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+.page-header {
+    padding: 24px 32px;
+    background-color: #1F3A5F;
+    color: #FFFFFF;
+}
+.page-header h1 {
+    margin: 0 0 4px 0;
+    font-size: 28px;
+}
+
+
