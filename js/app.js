@@ -172,7 +172,7 @@ function handleSubmit(submitEvent) {
  */
 function handleSearchById() {
     // searchIdText - the text in the search by ID input
-    const searchIdText = document.getElementById("searchIdInput").value.trim();
+    const searchIdText = document.getElementById("searchInput").value.trim();
     // resultElement - the element the search result is written into
     const resultElement = document.getElementById("searchResultView");
 
