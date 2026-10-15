@@ -40,28 +40,40 @@ let seedMovies = [
 function renderMovieTable(containerId, moviesToShow, emptyText) {
     // containerElement - the page element the table is written into
     const containerElement = document.getElementById(containerId);
+    const tbody = containerElement.querySelector("tbody");
+    const emptyMsg = containerElement.querySelector(".empty");
 
+    //Clear current rows
+    tbody.innerHTML = "";
+    //if no movies, show the empty message
     if (moviesToShow.length === 0) {
-        containerElement.innerHTML = emptyText;
+        emptyMsg.textContent = emptyText;
         return;
     }
-    // tableRows: the HTML for the body of the table, built row by row
-    let tableRows = "";
 
-    for (const currentMovie of moviesToShow) {
-        tableRows += "<tr>";
-        tableRows += "<td>" + currentMovie.movieId + "</td>";
-        tableRows += "<td>" + currentMovie.title + "</td>";
-        tableRows += "<td>" + currentMovie.year + "</td>";
-        tableRows += "<td>" + currentMovie.rating + "</td>";
-        tableRows += "</tr>";
+    //Otherwise, clear the empty message
+    emptyMsg.textContent = "";
+    //Loop through movies and insert rows into tbody using DOM
+    for (const movie of moviesToShow) {
+        const row = document.createElement("tr");
+        const idCell = document.createElement("td");
+        idCell.textContent = movie.movieId;
+        row.appendChild(idCell);
+
+        const titleCell = document.createElement("td");
+        titleCell.textContent = movie.title;
+        row.appendChild(titleCell);
+
+        const yearCell = document.createElement("td");
+        yearCell.textContent = movie.year;
+        row.appendChild(yearCell);
+
+        const ratingCell = document.createElement("td");
+        ratingCell.textContent = movie.rating;
+        row.appendChild(ratingCell);
+
+        tbody.appendChild(row);
     }
-    containerElement.innerHTML = 
-        "<table class=\"movie-table\">" +
-        "<thead><tr><th>Movie ID</th><th>Title</th><th>Year</th><th>Rating</th></tr></thead>" +
-        "<tbody>" + tableRows + "</tbody>" +
-        "</table>";
-
 
 }
 
@@ -174,17 +186,16 @@ function handleSearchById() {
     // searchIdText - the text in the search by ID input
     const searchIdText = document.getElementById("searchInput").value.trim();
     // resultElement - the element the search result is written into
-    const resultElement = document.getElementById("searchResultView");
 
     if (searchIdText === "" || isNaN(Number(searchIdText))) {
-        resultElement.innerHTML = "<p class=\"empty\">Enter a valid Movie ID to search for</p>";
+        renderMovieTable("searchResultView", [foundMovie], "0 results");
         return;
     }
     //foundMovie is the matching movie, if found
     const foundMovie = movieList.searchById(Number(searchIdText));
 
     if (foundMovie === null) {
-        resultElement.innerHTML = "<p class=\"empty\">0 results</p>";
+        renderMovieTable("searchResultView", [], "0 results");
         return;
     }
     renderMovieTable("searchResultView", [foundMovie], "0 results");
