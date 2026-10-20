@@ -66,12 +66,12 @@ class MovieList {
         const foundIndex = this.findIndexById(updatedMovie.movieId);
 
         if (foundIndex === -1) {
-            return {success: false, message: "Movie ID " + updatedMovie.movieId + "does not exist"};
+            return {success: false, message: "Movie ID " + updatedMovie.movieId + " does not exist"};
         }
         this.movies[foundIndex].title = updatedMovie.title;
         this.movies[foundIndex].year = updatedMovie.year;
         this.movies[foundIndex].rating = updatedMovie.rating;
-        return {success: true, message: "Movie " + updatedMovie.movieId + "has been updated"};
+        return {success: true, message: "Movie " + updatedMovie.movieId + " has been updated"};
 
     }
 

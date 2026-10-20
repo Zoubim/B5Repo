@@ -27,6 +27,18 @@ let seedMovies = [
     new Movie(101, "Alien", 1979, 5)
 ];
 
+/**
+ * showMessage
+ * Displays a short status message in the maintenance section
+ * @param {string} messageText - the message to display
+ * @param {boolean} isError - true to mark message as an error
+ * @returns {void}
+ */
+function showMessage(messageText, isError) {
+    //msgElement:  displays status message
+    const msgElement = document.getElementById("maintenanceMessage");
+    msgElement.textContent = messageText;
+}
 
 
 /**
@@ -188,7 +200,7 @@ function handleSearchById() {
     // resultElement - the element the search result is written into
 
     if (searchIdText === "" || isNaN(Number(searchIdText))) {
-        renderMovieTable("searchResultView", [foundMovie], "0 results");
+        renderMovieTable("searchResultView", [], "Enter a valid numeric Movie ID");
         return;
     }
     //foundMovie is the matching movie, if found
