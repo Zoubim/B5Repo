@@ -84,10 +84,10 @@ class MovieList {
     remove(movieId) {
         const foundIndex = this.findIndexById(movieId);
         if (foundIndex === -1) {
-            return {success: false, message: "Movie ID " + movieId + "does not exist"}; 
+            return {success: false, message: "Movie ID " + movieId + " does not exist"}; 
         } 
         this.movies.splice(foundIndex, 1);
-        return {success: true, message: "Movie ID" + movieId + "has been deleted"};
+        return {success: true, message: "Movie ID " + movieId + " has been deleted"};
     }
 
     /**

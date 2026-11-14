@@ -38,6 +38,14 @@ function showMessage(messageText, isError) {
     //msgElement:  displays status message
     const msgElement = document.getElementById("maintenanceMessage");
     msgElement.textContent = messageText;
+    msgElement.classList.remove("message-success", "message-error");
+    if (isError) {
+        msgElement.classList.add("message-error");
+
+    } else {
+        msgElement.classList.add("message-success");
+    }
+
 }
 
 
