@@ -36,8 +36,9 @@ body {
 }
 .page-main {
     display:grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 24px;
+    grid-template-columns: 48% 48%;
+    justify-content: space-between;
+    row-gap: 24px;
     padding: 24px 32px;
     max-width: 1200px;
     margin: 0 auto;
